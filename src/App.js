@@ -10,6 +10,8 @@ import {
 } from "react-router-dom";
 import Login from './components/Login/Login';
 import { createContext, useState } from 'react';
+import Vehicle from './components/Vehicle/Vehicle';
+import PrivateRoute from './components/PrivateRoute/PrivateRoute';
 
 export const UserContext = createContext();
 
@@ -26,6 +28,9 @@ function App() {
             <Route path="/login">
               <Login></Login>
             </Route>
+            <PrivateRoute path="/book/:type">
+              <Vehicle></Vehicle>
+            </PrivateRoute>
           </Switch>
         </Router>
       </UserContext.Provider>
