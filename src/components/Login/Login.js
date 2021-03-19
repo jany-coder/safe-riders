@@ -5,6 +5,8 @@ import firebaseConfig from './firebase.config';
 import {UserContext} from '../../App'
 import { useHistory, useLocation } from 'react-router';
 import { Button } from '@material-ui/core';
+import map from '../../images/Map.png'; // with import
+
 
 const Login = () => {
 
@@ -61,6 +63,10 @@ const Login = () => {
             </div>
             <div style={{marginTop:'10px'}}>
                 <Button variant="contained" color="primary" onClick={handleFacebookSignIn}>Facebook Sign In</Button>
+            </div>
+
+            <div style={{marginTop:'50px'}}>
+                <img src={map} alt=""/>
             </div>
             
             

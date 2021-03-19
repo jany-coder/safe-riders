@@ -37,9 +37,9 @@ const Home = () => {
         }
     ]
     return (
-        <div style={{marginLeft: '50px 0 50px 0'}}>
+        <div style={{marginLeft: '50px'}}>
             {
-                rooms.map(room => <div style={{float:'left'}}><Room key={room.bedType} room={room}></Room></div>)
+                rooms.map(room => <div style={{float:'left', padding:'5px'}}><Room key={room.bedType} room={room}></Room></div>)
             }
         </div>
     );
