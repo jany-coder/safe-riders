@@ -4,6 +4,7 @@ import "firebase/auth";
 import firebaseConfig from './firebase.config';
 import {UserContext} from '../../App'
 import { useHistory, useLocation } from 'react-router';
+import { Button } from '@material-ui/core';
 
 const Login = () => {
 
@@ -35,10 +36,35 @@ const Login = () => {
                 var credential = error.credential;
             });
     }
+
+    const handleFacebookSignIn = () => {
+        var fbProvider = new firebase.auth.FacebookAuthProvider();
+        firebase.auth()
+            .signInWithPopup(fbProvider)
+            .then((result) => {
+                const {displayName, email} = result.user;
+                const signedInUser = {name: displayName, email}
+                setLoggedInUser(signedInUser);
+                history.replace(from);
+            }).catch((error) => {
+                var errorCode = error.code;
+                var errorMessage = error.message;
+                var email = error.email;
+                var credential = error.credential;
+            });
+    }
     return (
         <div>
             <h1>{loggedInUser.displayName}</h1>
-            <button onClick={handleGoogleSignIn}>Google Sign In</button>
+            <div>
+                <Button variant="contained" color="secondary" onClick={handleGoogleSignIn}>Google Sign In</Button>
+            </div>
+            <div style={{marginTop:'10px'}}>
+                <Button variant="contained" color="primary" onClick={handleFacebookSignIn}>Facebook Sign In</Button>
+            </div>
+            
+            
+            
         </div>
     );
 };

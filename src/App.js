@@ -1,41 +1,43 @@
-import logo from './logo.svg';
+import React, { createContext, useState } from 'react';
 import './App.css';
 import {
   BrowserRouter as Router,
   Switch,
-  Route,
-  Link,
-  useRouteMatch,
-  useParams
+  Route
 } from "react-router-dom";
+import Home from './components/Home/Home';
 import Login from './components/Login/Login';
-import { createContext, useState } from 'react';
-import Vehicle from './components/Vehicle/Vehicle';
+import Book from './components/Book/Book';
+import Header from './components/Header/Header';
 import PrivateRoute from './components/PrivateRoute/PrivateRoute';
 
 export const UserContext = createContext();
 
 function App() {
   const [loggedInUser, setLoggedInUser] = useState({});
-  <p>Name: {loggedInUser.name}</p>
   return (
-    <div className="App">
-      
-      <UserContext.Provider value={[loggedInUser, setLoggedInUser]}>
-      <h1>Name: {loggedInUser.name}</h1>
-        <Router>
+    <UserContext.Provider value={[loggedInUser, setLoggedInUser]}>
+      <div style={{textAlign: 'center', backgroundColor:'blue', color:'#ffffff'}}><p> {loggedInUser.name}</p></div>
+      <Router>
+          <Header/>
           <Switch>
-            <Route path="/login">
-              <Login></Login>
+            <Route path="/home">
+              <Home />
             </Route>
-            <PrivateRoute path="/book/:type">
-              <Vehicle></Vehicle>
+            <Route path="/login">
+              <div style={{textAlign:'center'}}>
+                <Login></Login>
+              </div>
+            </Route>
+            <PrivateRoute path="/book/:bedType">
+              <Book />
             </PrivateRoute>
+            <Route exact path="/">
+              <Home />
+            </Route>
           </Switch>
-        </Router>
-      </UserContext.Provider>
-
-    </div>
+      </Router>
+    </UserContext.Provider>
   );
 }
 

@@ -1,24 +1,25 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
+import './Header.css';
+import header from '../../images/header.png';
+import logo from '../../images/icons/logo.png';
 
 const Header = () => {
     return (
-        <div>
-            <nav className = "nav">
+        <div style={{ backgroundImage: `linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) ), url(${header})` }} className="header">
+            <nav className="nav">
                 <ul>
                     <li>
-                        <img src="" alt=""/>
+                        <img className="logo" src={logo} alt=""/>
                     </li>
                     <li>
-                        <link to="/home">Home</link>
+                        <Link to="/home">Home</Link>
                     </li>
                     <li>
-                        <link to="/destination">Destination</link>
+                        <Link to="/login">Login</Link>
                     </li>
                     <li>
-                        <link to="/blog">Blog</link>
-                    </li>
-                    <li>
-                        <link to="/login">Login</link>
+                        <Link className="btn-book" to="/destination">Destination</Link>
                     </li>
                 </ul>
             </nav>
