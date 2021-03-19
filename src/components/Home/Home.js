@@ -12,26 +12,26 @@ const Home = () => {
     const rooms = [
         {
             title: 'Car',
-            description: 'Standard Single Rooms are designed in open -concept living area and have many facilities.',
+            description: 'Lorem Ipsum is simply dummy text of the printing and typesetting',
             imgUrl: 'https://i.ibb.co/ZTC7C5z/car.png',
             
         },
         {
             title: 'Bus',
-            description: 'Superior Double Rooms are perfectly equipped for traveling couples or friends.',
+            description: 'Lorem Ipsum is simply dummy text of the printing and typesetting',
             imgUrl: 'https://i.ibb.co/T0Z0rb0/bus.png',
            
         },
         {
             title: 'Bike',
-            description: ' Have lots of in-room facilities and are designed in open-concept living area.',
+            description: ' Lorem Ipsum is simply dummy text of the printing and typesetting',
             imgUrl: 'https://i.ibb.co/ZdkTdPH/bike.png',
             
         },
 
         {
             title: 'Metro',
-            description: ' Have lots of in-room facilities and are designed in open-concept living area.',
+            description: ' Lorem Ipsum is simply dummy text of the printing and typesetting',
             imgUrl: 'https://i.ibb.co/p2F1Dsx/metro.png',
             
         }

@@ -64,7 +64,7 @@ export default function Room({room}){
       </CardContent>
       <CardActions disableSpacing>     
         <Button onClick={() => handleBook(room.bedType)} variant="contained" color="primary">
-            Book
+            Ride
         </Button>
       </CardActions>
     </Card>
