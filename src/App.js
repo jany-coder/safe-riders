@@ -9,19 +9,27 @@ import {
   useParams
 } from "react-router-dom";
 import Login from './components/Login/Login';
+import { createContext, useState } from 'react';
+
+export const UserContext = createContext();
 
 function App() {
+  const [loggedInUser, setLoggedInUser] = useState({});
+  <p>Name: {loggedInUser.name}</p>
   return (
     <div className="App">
-      <h1>Hello</h1>
-
-      <Router>
+      
+      <UserContext.Provider value={[loggedInUser, setLoggedInUser]}>
+      <h1>Name: {loggedInUser.name}</h1>
+        <Router>
           <Switch>
-              <Route path="/login">
-                  <Login>Login</Login>
-              </Route>
+            <Route path="/login">
+              <Login></Login>
+            </Route>
           </Switch>
-      </Router>
+        </Router>
+      </UserContext.Provider>
+
     </div>
   );
 }
